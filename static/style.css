@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    width: 970px;
+    /* background-color: red; */
+    margin: auto;
+}
+
+.yourgold {
+    margin-top: 10px;
+}
+
+.location {
+    height: 225px;
+    width: 225px;
+    border: 1px solid black;
+    display: inline-block;
+    text-align: center;
+    margin: 40px 5.8px 10px 5.8px;
+}
+
+.location h2 {
+    margin: 25px;
+}
+
+.location input {
+    width: 90px;
+    height: 30px;
+    margin-top: 35px;
+    background-color: gold;
+    color: black;
+    box-shadow: 2px 2px #6f7678;
+}
+
+.reset {
+    width: 90px;
+    height: 30px;
+    margin: 10px 0px 20px 636px;
+    border-radius: 10px;
+    background-color: red;
+    color: white;
+    box-shadow: 2px 2px #6f7678;
+    display: inline-block;
+}
+
+.message {
+    height: 250px;
+    width: 959px;
+    margin-left: 6px;
+    background-color: white;
+    overflow-y: scroll;
+    border: 1px solid black;
+}
+
+.green {
+    color: green;
+}
+
+.red {
+    color: red;
+}
+
+.black {
+    color: black;
+}
+
+.grey {
+    color: dimgrey;
+    font-weight: bold;
+    font-size: 24px;
+    display: inline-block;
+    vertical-align: top;
+    margin: 10px 5.8px;
+}
+
+

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset='UTF-8'>
+        <meta name='ninjaGold' content='This is an application where you wager your gold into different areas to increase or decrease your gold.'>
+        <title>Ninja Gold</title>
+        <link rel='stylesheet' type='text/css' href='{{ url_for("static", filename="style.css") }}'>
+    </head>
+    <body>
+        <div class='wrapper'>
+            <h3 class='yourgold'>Your Gold: {{ gold }}</h3>
+            <h3>Moves: {{ moves }}</h3>
+            <div class='location'>
+                <h2>Farm</h2>
+                <p>(earns 10-20 gold)</p>
+                <form action='/process_money' method='POST'>
+                    <input type='hidden' name='location' value='farm'>
+                    <input type='submit' value='Find Gold!'>
+                </form>
+            </div>
+            <div class='location'>
+                <h2>Cave</h2>
+                <p>(earns 5-10 gold)</p>
+                <form action='/process_money' method='POST'>
+                    <input type='hidden' name='location' value='cave'>
+                    <input type='submit' value='Find Gold!'>
+                </form>
+            </div>
+            <div class='location'>
+                <h2>House</h2>
+                <p>(earns 2-5 gold)</p>
+                <form action='/process_money' method='POST'>
+                    <input type='hidden' name='location' value='house'>
+                    <input type='submit' value='Find Gold!'>
+                </form>
+            </div>
+            <div class='location'>
+                <h2>Casino</h2>
+                <p>(earns/takes 0-50 gold)</p>
+                <form action='/process_money' method='POST'>
+                    <input type='hidden' name='location' value='casino'>
+                    <input type='submit' value='Find Gold!'>
+                </form>
+            </div>
+            <div class='message'>
+                {% for i in range(messages|length): %}
+                    <p class='{{ colors[i] }}'>{{ messages[i] }}</p>
+                {% endfor %}
+            </div>
+            <form action='/process_money' method='POST'>
+                {% if moves < 15 %}
+                    <input type='hidden' name='reset' value='resetbtn'>
+                    <input class='reset' type='submit' value='RESET' style='display: none;'>
+                {% endif %}
+                {% if moves >= 15 and gold < 100 %}
+                    <h1 class='grey'>YOU HAVE LOST</h1>
+                    <input type='hidden' name='reset' value='resetbtn'>
+                    <input class='reset' type='submit' value='RESET'>
+                {% endif %}
+                {% if moves >= 15 and gold >= 100 %}
+                    <h1 class='grey' style='color: gold;'>YOU HAVE WON</h1>
+                    <input type='hidden' name='reset' value='resetbtn'>
+                    <input class='reset' type='submit' value='RESET'>
+                {% endif %}
+            </form>
+        </div>
+    </body>
+</html>
